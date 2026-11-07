@@ -1,0 +1,413 @@
+:root {
+  --bg: #19191a;
+  --surface: #232324;
+  --line: #403f41;
+  --text: #f3f0ea;
+  --muted: #c2bdb3;
+  --red: #b11929;
+  --red-deep: #8f1420;
+  --yellow: #f0bd1c;
+  --yellow-hover: #f7cd45;
+  --ink: #1a1a1b;
+
+  --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --gutter: 1.25rem;
+  --max: 72rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+main { overflow-x: clip; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2 { margin: 0; font-family: var(--display); font-weight: 800; text-wrap: balance; }
+p { margin: 0; }
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  padding: .6rem 1rem;
+  background: var(--text);
+  color: var(--ink);
+  font-weight: 600;
+  z-index: 30;
+}
+.skip:focus { top: 1.25rem; }
+
+/* ---------- listra de alerta (bordas) ---------- */
+.hazard {
+  height: .75rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--yellow) 0 .75rem,
+    var(--ink) .75rem 1.5rem
+  );
+}
+
+/* ---------- topo ---------- */
+.top {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 0;
+}
+.brand { width: 8.5rem; height: auto; }
+
+/* ---------- hero ---------- */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 3.5rem;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(5.5rem, 31vw, 12rem);
+  line-height: .84;
+  letter-spacing: -.01em;
+}
+
+.hero__lead {
+  max-width: 24rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* ---------- botão ---------- */
+.btn {
+  --btn-cut: 16px;
+  --btn-bg: var(--yellow);
+  --btn-shape: polygon(
+    var(--btn-cut) 0, calc(100% - var(--btn-cut)) 0, 100% var(--btn-cut), 100% calc(100% - var(--btn-cut)),
+    calc(100% - var(--btn-cut)) 100%, var(--btn-cut) 100%, 0 calc(100% - var(--btn-cut)), 0 var(--btn-cut)
+  );
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 26rem;
+  min-height: 3.75rem;
+  padding: 0 2.5rem;
+  color: var(--ink);
+  font: 700 1.5rem/1 var(--display);
+  letter-spacing: .02em;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* faixa de brilho que passa de tempos em tempos */
+  background: linear-gradient(105deg, var(--btn-bg) 42%, #fff1ac 50%, var(--btn-bg) 58%) 100% 0 / 250% 100% no-repeat;
+  clip-path: var(--btn-shape);
+  animation: shine 4s ease-in-out infinite;
+}
+.btn:hover { --btn-bg: var(--yellow-hover); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+
+@keyframes shine {
+  0%, 55% { background-position: 100% 0; }
+  100%    { background-position: 0 0; }
+}
+
+/* botão grande do bloco vermelho */
+.btn--xl {
+  --btn-cut: 24px;
+  width: min(100%, 38rem);
+  max-width: none;
+  min-height: 5.5rem;
+  font-size: clamp(2rem, 8.5vw, 3rem);
+}
+.btn--xl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--yellow);
+  clip-path: var(--btn-shape);
+  animation: ping 2.4s cubic-bezier(.2, .6, .3, 1) infinite;
+}
+@keyframes ping {
+  0%   { transform: scale(1); opacity: .65; }
+  75%, 100% { transform: scale(1.07, 1.32); opacity: 0; }
+}
+
+/* botão que acompanha a rolagem no celular */
+.float-cta {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 15;
+  width: auto;
+  max-width: none;
+  min-height: 3.75rem;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(calc(100% + 1.5rem));
+  filter: drop-shadow(0 .4rem .9rem rgba(0, 0, 0, .55));
+  transition: transform .3s ease, opacity .3s ease, visibility 0s linear .3s;
+}
+.float-cta.is-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+
+/* ---------- faixa de fotos ---------- */
+.looks { padding: .5rem 0 3.5rem; }
+.looks h2 {
+  max-width: var(--max);
+  margin: 0 auto 1.75rem;
+  padding: 0 var(--gutter);
+  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  line-height: .95;
+}
+
+.strip { overflow: hidden; }
+.strip:focus-visible { outline: 3px solid var(--text); outline-offset: -3px; }
+
+.strip { overflow-x: auto; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.strip__track {
+  display: flex;
+  width: max-content;
+}
+.strip.is-live { overflow: hidden; }
+.strip.is-live .strip__track { animation: slide var(--strip-time, 42s) linear infinite; }
+.strip.is-live:hover .strip__track { animation-play-state: paused; }
+
+.strip__group {
+  display: flex;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.strip__item {
+  flex: 0 0 auto;
+  width: clamp(16rem, 24vw, 26rem);
+  aspect-ratio: 3 / 4;
+  margin-right: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+.strip__item img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes slide { to { transform: translateX(-33.3333%); } }
+
+/* ---------- faixas de alerta ---------- */
+.tapes {
+  position: relative;
+  height: 8.5rem;
+  overflow: hidden;
+}
+.tape {
+  --stripe-a: var(--ink);
+  --stripe-b: var(--yellow);
+  position: absolute;
+  left: -6%;
+  width: 112%;
+  overflow: hidden;
+  padding: .85rem 0;
+  background: var(--tape-bg);
+  color: var(--tape-fg);
+}
+.tape::before,
+.tape::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: .4rem;
+  background: repeating-linear-gradient(-45deg, var(--stripe-a) 0 .5rem, var(--stripe-b) .5rem 1rem);
+}
+.tape::before { top: 0; }
+.tape::after { bottom: 0; }
+
+.tape--front {
+  --tape-bg: var(--yellow);
+  --tape-fg: var(--ink);
+  top: 2.1rem;
+  z-index: 2;
+  transform: rotate(-3deg);
+  box-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .35);
+}
+.tape--back {
+  --tape-bg: var(--red-deep);
+  --tape-fg: var(--text);
+  --stripe-a: var(--ink);
+  --stripe-b: var(--red);
+  top: 3rem;
+  z-index: 1;
+  transform: rotate(5.5deg);
+}
+
+.tape__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.tape--back .tape__track { animation-direction: reverse; animation-duration: 52s; }
+
+.tape__group { display: flex; flex-shrink: 0; }
+.tape__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+  font: 800 1.5rem/1 var(--display);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.warn { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+.warn .ex { fill: var(--tape-bg); }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- bloco vermelho do grupo VIP ---------- */
+.vip {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: radial-gradient(90% 75% at 50% 0%, #b11929 0%, var(--red-deep) 58%, #6e0f19 100%);
+}
+
+/* palavra gigante só de contorno, atrás do texto */
+.vip__word {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: 800 clamp(17rem, 78vw, 42rem)/.8 var(--display);
+  letter-spacing: -.02em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(243, 240, 234, .15);
+  pointer-events: none;
+  user-select: none;
+}
+
+.vip__inner {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4.5rem var(--gutter) 5.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vip h2 {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4.5rem, 22vw, 11rem);
+  line-height: .84;
+  letter-spacing: -.01em;
+}
+.vip h2 span { white-space: nowrap; }
+.vip p {
+  max-width: 30rem;
+  margin: 1.75rem 0 2.75rem;
+  font-size: 1.375rem;
+  line-height: 1.4;
+}
+
+/* ---------- rodapé ---------- */
+.foot {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: .9375rem;
+}
+.foot img { width: 6.5rem; height: auto; }
+
+/* ---------- aviso de link pendente ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 5.5rem;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 2.5rem);
+  padding: .85rem 1.25rem;
+  background: var(--text);
+  color: var(--ink);
+  font-weight: 600;
+  border-radius: 2px;
+  z-index: 20;
+}
+.toast[hidden] { display: none; }
+
+/* ---------- telas maiores ---------- */
+@media (min-width: 56rem) {
+  :root { --gutter: 2.5rem; }
+
+  .brand { width: 10.5rem; }
+
+  .hero { padding-top: 3rem; padding-bottom: 4rem; text-align: center; }
+  .hero__title {
+    flex-direction: row;
+    justify-content: center;
+    gap: .22em;
+    font-size: clamp(9rem, 15vw, 15rem);
+  }
+  .hero__lead { max-width: 38rem; margin: 2rem auto 2.5rem; font-size: 1.5rem; }
+
+  .looks { padding-bottom: 5rem; }
+  .looks h2 { margin-bottom: 2.5rem; text-align: center; }
+
+  .tapes { height: 10rem; }
+  .tape--front { top: 3.5rem; transform: rotate(-2deg); }
+  .tape--back { top: 3.5rem; transform: rotate(2deg); }
+  .tape__item { font-size: 1.875rem; gap: 1.75rem; padding-right: 1.75rem; }
+  .warn { width: 1.875rem; height: 1.875rem; }
+
+  .vip__inner { padding-top: 6.5rem; padding-bottom: 7rem; }
+  .vip h2 { font-size: clamp(8rem, 13vw, 13rem); }
+  .vip p { max-width: 38rem; font-size: 1.625rem; margin-bottom: 3.25rem; }
+
+  .float-cta { display: none; }
+  .toast { bottom: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::before, .btn--xl::after { animation: none; }
+  .btn--xl::after { display: none; }
+  .float-cta { transition: none; }
+  .tape__track { animation: none; }
+
+  /* sem movimento: a faixa de fotos vira uma fileira que se arrasta com o dedo */
+  .strip, .strip.is-live { overflow-x: auto; scroll-snap-type: x proximity; }
+  .strip.is-live .strip__track { animation: none; }
+  .strip__group:nth-child(n + 2) { display: none; }
+  .strip__item { scroll-snap-align: start; }
+}
