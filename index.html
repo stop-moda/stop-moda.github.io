@@ -22,9 +22,9 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700;800&display=swap">
+  <link rel="preload" href="assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 
   <script type="application/ld+json">
@@ -63,25 +63,6 @@
       <h1 class="hero__title"><span>Pare</span> <span>tudo.</span></h1>
       <p class="hero__lead">Descontos de até 80% no que há de melhor em moda masculina.</p>
       <a id="grupo" class="btn" href="#" data-group-link>Entrar no grupo VIP</a>
-    </section>
-
-    <section class="looks" aria-labelledby="looks-title">
-      <h2 id="looks-title">Camisetas, bonés, shorts e calças.</h2>
-
-      <div class="strip" tabindex="0" role="region" aria-label="Fotos da loja">
-        <div class="strip__track">
-          <!-- Só este grupo é editado. O script.js copia o grupo 2 vezes para a faixa girar sem emenda. -->
-          <ul class="strip__group">
-            <li class="strip__item"><img src="public/images/bones.webp" width="1000" height="1083" loading="lazy" decoding="async" alt="Três bonés pretos empilhados sobre o balcão da loja"></li>
-            <li class="strip__item"><img src="public/images/loja.webp" width="1000" height="1333" loading="lazy" decoding="async" alt="Boné, camiseta e calça jeans clara sobre a mesa da loja"></li>
-            <li class="strip__item"><img src="public/images/bones-bege.webp" width="1000" height="1074" loading="lazy" decoding="async" alt="Três bonés bege com a letra B bordada, empilhados no balcão"></li>
-            <li class="strip__item"><img src="public/images/look-polo.webp" width="1000" height="1352" loading="lazy" decoding="async" alt="Look com polo branca, calça cinza-clara e tênis cinza"></li>
-            <li class="strip__item"><img src="public/images/bones-azul.webp" width="1000" height="1083" loading="lazy" decoding="async" alt="Bonés azul-marinho de camurça com detalhe metálico"></li>
-            <li class="strip__item"><img src="public/images/look-bermuda.webp" width="1000" height="1333" loading="lazy" decoding="async" alt="Look com camiseta branca, bermuda bege e chinelos brancos"></li>
-            <li class="strip__item"><img src="public/images/bones-cores.webp" width="1000" height="1333" loading="lazy" decoding="async" alt="Bonés vermelho, preto e branco com a letra B, na vitrine da loja"></li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <div class="tapes" aria-hidden="true">

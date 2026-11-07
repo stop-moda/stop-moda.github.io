@@ -1,3 +1,8 @@
+/* Fontes Barlow (licença SIL OFL) hospedadas no próprio site */
+@font-face { font-family: "Barlow"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/barlow-400.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/barlow-600.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/barlow-condensed-700.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-style: normal; font-display: swap; src: url("assets/fonts/barlow-condensed-800.woff2") format("woff2"); }
 :root {
   --bg: #19191a;
   --surface: #232324;
@@ -196,48 +201,6 @@ p { margin: 0; }
   transition-delay: 0s;
 }
 
-/* ---------- faixa de fotos ---------- */
-.looks { padding: .5rem 0 3.5rem; }
-.looks h2 {
-  max-width: var(--max);
-  margin: 0 auto 1.75rem;
-  padding: 0 var(--gutter);
-  font-size: clamp(2.25rem, 8vw, 3.5rem);
-  line-height: .95;
-}
-
-.strip { overflow: hidden; }
-.strip:focus-visible { outline: 3px solid var(--text); outline-offset: -3px; }
-
-.strip { overflow-x: auto; scrollbar-width: none; }
-.strip::-webkit-scrollbar { display: none; }
-.strip__track {
-  display: flex;
-  width: max-content;
-}
-.strip.is-live { overflow: hidden; }
-.strip.is-live .strip__track { animation: slide var(--strip-time, 42s) linear infinite; }
-.strip.is-live:hover .strip__track { animation-play-state: paused; }
-
-.strip__group {
-  display: flex;
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.strip__item {
-  flex: 0 0 auto;
-  width: clamp(16rem, 24vw, 26rem);
-  aspect-ratio: 3 / 4;
-  margin-right: 1rem;
-  overflow: hidden;
-  background: var(--surface);
-}
-.strip__item img { width: 100%; height: 100%; object-fit: cover; }
-
-@keyframes slide { to { transform: translateX(-33.3333%); } }
-
 /* ---------- faixas de alerta ---------- */
 .tapes {
   position: relative;
@@ -410,8 +373,6 @@ p { margin: 0; }
   }
   .hero__lead { max-width: 38rem; margin: 2rem auto 2.5rem; font-size: 1.5rem; }
 
-  .looks { padding-bottom: 5rem; }
-  .looks h2 { margin-bottom: 2.5rem; text-align: center; }
 
   .tapes { height: 10rem; }
   .tape--front { top: 3.5rem; transform: rotate(-2deg); }
@@ -432,10 +393,4 @@ p { margin: 0; }
   .btn--xl::after { display: none; }
   .float-cta { transition: none; }
   .tape__track { animation: none; }
-
-  /* sem movimento: a faixa de fotos vira uma fileira que se arrasta com o dedo */
-  .strip, .strip.is-live { overflow-x: auto; scroll-snap-type: x proximity; }
-  .strip.is-live .strip__track { animation: none; }
-  .strip__group:nth-child(n + 2) { display: none; }
-  .strip__item { scroll-snap-align: start; }
 }

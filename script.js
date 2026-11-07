@@ -29,25 +29,6 @@ const CONFIG = {
   });
 })();
 
-/* ---------- faixa de fotos ---------- */
-// Copia o grupo de fotos 2 vezes (só visual) e liga a animação.
-(function () {
-  const strip = document.querySelector(".strip");
-  const track = strip && strip.querySelector(".strip__track");
-  const group = track && track.querySelector(".strip__group");
-  if (!group) return;
-
-  for (let i = 0; i < 2; i++) {
-    const copy = group.cloneNode(true);
-    copy.setAttribute("aria-hidden", "true");
-    copy.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
-    track.appendChild(copy);
-  }
-  // mais fotos = faixa mais comprida; mantém a mesma velocidade (12 s por foto)
-  track.style.setProperty("--strip-time", group.children.length * 12 + "s");
-  strip.classList.add("is-live");
-})();
-
 /* ---------- botão flutuante (celular) ---------- */
 // Aparece quando o botão do topo, o botão grande do bloco vermelho e o rodapé estão fora da tela.
 (function () {
