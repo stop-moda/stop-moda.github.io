@@ -7,5 +7,6 @@
 - **Conversão principal:** entrar no grupo VIP (link ainda não existe).
 - **Marca:** logo "stop" com placa de pare. Cores do manual: grafite `#403f41`, amarelo `#ffcb04`, vermelho `#b11929`. Pedido do cliente: seguir preto, vermelho e amarelo, sem nada muito vibrante.
 - **Fotos recebidas:** bonés pretos (Blck), look com polo e calça, boné + camiseta TXC + jeans, look com camiseta, bermuda e chinelos.
-- **Cidade, endereço, telefone, Instagram:** não informados.
+- **Cidade:** Ponta Porã (MS). Esta página é só para a loja de Ponta Porã, para o público de lá. A Stop tem outra unidade em outra cidade, que não aparece nesta página.
+- **Endereço, telefone, Instagram:** não informados.
 - **Domínio próprio:** não informado.

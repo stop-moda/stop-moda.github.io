@@ -27,7 +27,8 @@ Abra http://localhost:5173.
 ## Pendências
 
 - **Link do grupo VIP:** colar em `script.js`, em `CONFIG.GROUP_LINK`. Enquanto estiver vazio, o botão mostra um aviso em vez de abrir algo. **Não divulgar a página antes disso.**
-- **Cidade, endereço, telefone e Instagram:** não foram informados, então não aparecem no site nem nos dados estruturados.
+- **Cidade:** a página é só para Ponta Porã e isso aparece no topo, no texto principal, nas faixas, no bloco vermelho, no rodapé e no título. Não mencionar a outra unidade da Stop nesta página.
+- **Endereço, telefone e Instagram:** não foram informados, então não aparecem no site nem nos dados estruturados.
 - **Domínio próprio:** ainda não definido.
 - **Textos:** conferir se o cliente aprova "Pare tudo.", "Não fique de fora." e as frases de apoio.
 - **Fotos:** a logo que vinha dentro da foto dos bonés foi cortada para não duplicar com a logo do topo.
