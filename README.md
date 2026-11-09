@@ -26,7 +26,7 @@ Abra http://localhost:5173.
 ## Pendências
 
 - **Link do grupo VIP:** já configurado em `CONFIG.GROUP_LINK` (`script.js`) com o grupo de WhatsApp informado em 2026-11-09, que é o **mesmo grupo dos dois sites** (Ponta Porã e Capitán Bado). Se a Stop criar um grupo só de Ponta Porã, é só trocar o link ali.
-- **Texto "Grupo exclusivo para o público de Ponta Porã.":** conflita um pouco com o fato de o grupo ser o mesmo nas duas cidades. Combinar com o cliente se mantém ou ajusta.
+- **Frase abaixo do botão grande:** "Grupo exclusivo, direto no seu WhatsApp." (igual nos dois sites, sem citar cidade, porque o grupo é o mesmo nas duas).
 - **Cidade:** a página é só para Ponta Porã e isso aparece no topo, no texto principal, nas faixas, no bloco vermelho, no rodapé e no título. Não mencionar a outra unidade da Stop nesta página.
 - **Endereço, telefone e Instagram:** não foram informados, então não aparecem no site nem nos dados estruturados.
 - **Domínio próprio:** ainda não definido.
