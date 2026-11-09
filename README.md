@@ -18,6 +18,7 @@ Abra http://localhost:5173.
 ## Como mexer
 
 - **Link do grupo:** `CONFIG.GROUP_LINK` no topo do `script.js`. Vale para os 3 botões (topo, bloco vermelho e botão flutuante do celular).
+- **Pixel da Meta (só neste site):** código no fim do `<head>` do `index.html` (pixel `1785734212644446`, evento PageView). O clique em qualquer botão do grupo envia o evento **Lead** (função `trackLead` em `script.js`), mas só depois que `CONFIG.GROUP_LINK` estiver preenchido. O site de Capitán Bado não tem pixel.
 - **Botão flutuante:** só aparece no celular, depois que o botão do topo sai da tela e até o botão grande do bloco vermelho aparecer.
 - **Texto das faixas de alerta:** atributo `data-words` das duas `.tape__track` no `index.html`, palavras separadas por `|`.
 - Para quem pede menos movimento no aparelho, as faixas de alerta ficam paradas e os botões deixam de pulsar e brilhar.

@@ -11,11 +11,21 @@ const CONFIG = {
   const toast = document.querySelector(".toast");
   let timer;
 
+  // Avisa o Pixel da Meta que alguém clicou para entrar no grupo (evento "Lead").
+  // Só roda com o link do grupo configurado, para o aviso de teste não contar como conversão.
+  // O "if" protege caso um bloqueador de anúncios tenha impedido o pixel de carregar.
+  function trackLead() {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead", { content_name: "Grupo VIP Ponta Porã" });
+    }
+  }
+
   buttons.forEach((btn) => {
     if (CONFIG.GROUP_LINK) {
       btn.href = CONFIG.GROUP_LINK;
       btn.target = "_blank";
       btn.rel = "noopener";
+      btn.addEventListener("click", trackLead);
       return;
     }
     // Sem link ainda: o botão avisa em vez de levar a lugar nenhum.
