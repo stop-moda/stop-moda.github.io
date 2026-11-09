@@ -2,7 +2,7 @@
 // Quando o grupo VIP existir, cole o link entre as aspas de GROUP_LINK.
 // Exemplo: "https://chat.whatsapp.com/XXXXXXXX"
 const CONFIG = {
-  GROUP_LINK: "",
+  GROUP_LINK: "https://chat.whatsapp.com/LGLtOQnFOyVLuJNoQwlrh8",
 };
 
 /* ---------- botões do grupo ---------- */
